@@ -1,13 +1,73 @@
+:root {
+	--outer-size: 50px;
+}
+
+body {
+	font-family: "Noto Sans Mono"
+}
 .feed {
 	display: grid;
 	justify-content: center;
-	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-columns: 1fr 3fr;
 	width: 100%;
 }
+.title-and-nav {
+	margin-left: 30px;
+	margin-right: 20px;
+}
+.ballsack {
+	margin-top: 10px;
+}
 .title {
-	color: red
+	color: #D94427 
+}
+.subtitle {
+	max-width: 50%;
+	padding-right: 10px;
+}
+.posts {
+	padding-right: 20px;
 }
 .post-container {
 	text-align: left;
 	padding-left: 5px;
+	max-width: 500px;
+}
+
+.roll-red {
+	animation-delay: 1s;
+}
+
+.roll-black {
+	animation-delay: 2s;
+}
+
+.roll-grey {
+	animation-delay: 3s;
+}
+
+.roll {
+	cy: 50px;
+	cx: 10px;
+	animation-name: roll;
+	transform-origin: var(--outer-size);
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes roll {
+	0% {
+		transform: rotate(0deg);
+		cx: 10px;
+	}
+	50% {
+		transform: rotate(360deg);
+		cx: 10px;
+	}
+	100% {
+		cx: 50px;
+		r: 50px;
+	}
 }
