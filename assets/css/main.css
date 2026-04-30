@@ -46,13 +46,13 @@ body {
 	animation-delay: 3s;
 }
 
+
 .roll {
 	cy: 50px;
 	cx: 10px;
 	animation-name: roll;
 	transform-origin: var(--outer-size);
 	animation-duration: 5s;
-	animation-iteration-count: infinite;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
 }
@@ -69,5 +69,20 @@ body {
 	100% {
 		cx: 50px;
 		r: 50px;
+	}
+}
+
+.animation-text {
+	font-style: italic;
+	animation-name: roll-text;
+	animation-duration: 10s;
+}
+
+@keyframes roll-text {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }
