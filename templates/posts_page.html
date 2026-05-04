@@ -1,0 +1,28 @@
+{{ define "mainContent" }}
+<div class="feed">
+	<div class="title-and-nav">
+		<h1 class="title">Mogged By The Machine</h1>
+		<p class="subtitle">
+		<p><i>If not Beautiful and Useful</i></p>
+		<p><i>I'll take Useless and Beautiful</i></p>
+		<p><i>And settle for Useful and Ugly</i></p>
+		<p><i>But no more Ugly and Useless.</i></p>
+		<p>
+		<div class="ballsack">
+			<svg viewBox="0 0 100 100" xmlns="https://www.w3.org/2000/svg">
+				<circle class="roll roll-grey" fill="grey" r="10"/>
+				<circle class="roll roll-black" r="10"/>
+				<circle class="roll roll-red" fill="#D94427" r="10"/>
+				<text x="50" y="50" class="animation-text" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="12" fill="black">
+				you're gay...
+				</text>
+			</svg>
+		</div>
+	</div>
+	<div class="posts">	
+		{{ range . }}
+			{{ template "post-card" . }}
+		{{ end }}
+	</div>
+</div>
+{{ end }}
