@@ -13,8 +13,14 @@
 				<circle class="roll roll-grey" fill="grey" r="10"/>
 				<circle class="roll roll-black" r="10"/>
 				<circle class="roll roll-red" fill="#D94427" r="10"/>
-				<text x="50" y="50" class="animation-text" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="12" fill="black">
-				you're gay...
+				<g id="btn-trigger" cursor="pointer">
+					<circle cx="50" cy="50" r="25" fill="transparent" />
+					<text x="50" y="50" text-anchor="middle" style="pointer-events: none"dominant-baseline="middle" font-family="Arial" font-size="6" fill="black">
+						Find out what you are...	
+					</text>
+				</g>
+				<text id="display-text" style="opacity: 0" x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="12" fill="black">
+					you're gay...
 				</text>
 			</svg>
 		</div>
@@ -25,4 +31,13 @@
 		{{ end }}
 	</div>
 </div>
+<script>
+	const button = document.getElementById('btn-trigger');
+	const target = document.getElementById('display-text');
+
+	button.addEventListener('click', function() {
+		button.classList.toggle('hide-text');
+		target.classList.toggle('show-text');
+	});
+</script>
 {{ end }}

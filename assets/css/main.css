@@ -99,17 +99,36 @@ body {
 	}
 }
 
-.animation-text {
+.show-text {
 	font-style: italic;
-	animation-name: roll-text;
+	animation-name: show-text;
 	animation-duration: 10s;
 }
 
-@keyframes roll-text {
+.hide-text {
+	font-style: italic;
+	animation-name: hide-text;
+	animation-duration: 10s;
+}
+
+@keyframes show-text {
 	from {
 		opacity: 0;
 	}
 	to {
 		opacity: 1;
 	}
+}
+
+@keyframes hide-text {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+#btn-trigger:hover {
+	outline: 5px solid yellow;
 }
