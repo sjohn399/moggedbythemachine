@@ -61,25 +61,25 @@ body {
 	border: 2px solid black;	
 }
 
+/* Circle rolling animation */
 .roll-red {
-	animation-delay: 1s;
+	animation-delay: 0s;
 }
 
 .roll-black {
-	animation-delay: 2s;
+	animation-delay: 0s;
 }
 
 .roll-grey {
-	animation-delay: 3s;
+	animation-delay: 0s;
 }
-
 
 .roll {
 	cy: 50px;
 	cx: 10px;
 	animation-name: roll;
 	transform-origin: var(--outer-size);
-	animation-duration: 5s;
+	animation-duration: 1s;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
 }
@@ -99,16 +99,28 @@ body {
 	}
 }
 
-.show-text {
-	font-style: italic;
-	animation-name: show-text;
-	animation-duration: 10s;
+.thinking-man {
+	animation-name: thinking-man;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
 }
 
-.hide-text {
-	font-style: italic;
-	animation-name: hide-text;
-	animation-duration: 10s;
+@keyframes thinking-man {
+	0% {
+		font-size: 4;
+	}
+	50% {
+		font-size: 8;
+	}
+	100% {
+		font-size: 2;
+	}
+}
+
+.show-text {
+	animation-name: show-text;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes show-text {
@@ -120,6 +132,12 @@ body {
 	}
 }
 
+.hide-text {
+	animation-name: hide-text;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
 @keyframes hide-text {
 	from {
 		opacity: 1;
@@ -127,8 +145,4 @@ body {
 	to {
 		opacity: 0;
 	}
-}
-
-#btn-trigger:hover {
-	outline: 5px solid yellow;
 }
