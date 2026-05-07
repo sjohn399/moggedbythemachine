@@ -12,10 +12,25 @@ body {
 	grid-template-columns: 1fr 3fr;
 	width: 100%;
 }
+
 .title-and-nav {
+	position: sticky;
+	top: 20px;
+}
+.title-and-nav-container {
+	position: sticky;
+	top: 10px;
+	min-width: 350px;
 	margin-left: 30px;
 	margin-right: 20px;
 }
+
+.socials {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
 .ballsack {
 	margin-top: 10px;
 }
@@ -44,12 +59,14 @@ body {
 .posts {
 	padding-right: 20px;
 	display: flex;
+	flex-direction: column;
 }
 
 .post-card {
 	text-align: left;
 	padding: 10px;
 	overflow: clip;
+	margin-bottom: 15px;
 	margin-right: 5px;
 	max-height: 500px;
 	border: 2px solid black;	
@@ -61,17 +78,22 @@ body {
 	border: 2px solid black;	
 }
 
+.blog-post-header {
+	display: flex;
+	justify-content: space-between;
+}
+
 /* Circle rolling animation */
 .roll-red {
-	animation-delay: 0s;
+	animation-delay: 3s;
 }
 
 .roll-black {
-	animation-delay: 0s;
+	animation-delay: 2s;
 }
 
 .roll-grey {
-	animation-delay: 0s;
+	animation-delay: 1s;
 }
 
 .roll {
@@ -79,7 +101,7 @@ body {
 	cx: 10px;
 	animation-name: roll;
 	transform-origin: var(--outer-size);
-	animation-duration: 1s;
+	animation-duration: 3s;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
 }
