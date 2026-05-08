@@ -17,6 +17,7 @@ body {
 	position: sticky;
 	top: 20px;
 }
+
 .title-and-nav-container {
 	position: sticky;
 	top: 10px;
@@ -29,14 +30,26 @@ body {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .ballsack {
 	margin-top: 10px;
 }
+
+.llm-input {
+	display: flex;
+}
+
+.llm-input button {
+	margin-left: 10px;
+	width: 40px;
+}
+
 .title {
 	color: #D94427 
 }
+
 .subtitle {
 	max-width: 50%;
 	padding-right: 10px;
@@ -166,5 +179,21 @@ body {
 	}
 	to {
 		opacity: 0;
+	}
+}
+
+.answer-animation {
+	animation-name: answer-animation;
+	animation-duration: 3s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes answer-animation {
+	from {
+		font-size: 2;
+		opacity: 0;
+	} to {
+		font-size: 18;
+		opacity: 1;
 	}
 }

@@ -8,14 +8,15 @@
 				<p><i>I'll take Useless and Beautiful</i></p>
 				<p><i>And settle for Useful and Ugly</i></p>
 				<p><i>But no more Ugly and Useless.</i></p>
-			<p>
+			</p>
 			<div class="socials">
 				<a href="https://github.com/sjohn399" target="_">Github</a>
 				<a href="https://x.com/samjohnson399" target="_">Twitter</a>
 				<a href="mailto:nineteenthbrumaire@gmail.com">Email</a>
 			</div>
-			<div>
+			<div class="llm-input">
 				<input id="query" type="text" style="width: 100%; height: 40px; font-size: 16px; padding-left: 5px" placeholder="Ask anything..." />
+				<button id="query-button">&#10140;</button>
 			</div>
 			<div class="ballsack">
 				<svg viewBox="0 0 100 100" xmlns="https://www.w3.org/2000/svg">
@@ -24,6 +25,9 @@
 					<circle class="roll roll-red" fill="#D94427" r="10"/>
 					<text id="display-text" style="opacity: 0;" x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="4" fill="black">
 						<tspan class="thinking-man">🤔</tspan><tspan>...</tspan><tspan id="thinking-text">Thinking</tspan><tspan>...</tspan><tspan class="thinking-man">🤔</tspan>
+					</text>
+					<text id="answer" style="opacity: 0;" x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="4" fill="black">
+						DEEZ NUTS
 					</text>
 				</svg>
 			</div>
@@ -37,61 +41,77 @@
 </div>
 <script>
 	const input = document.getElementById('query') 
+	const button = document.getElementById('query-button') 
 	const targetContainer = document.getElementById('display-text');
+	const answer = document.getElementById('answer');
 	const target = document.getElementById('thinking-text');
 
-	/*
 	const text = [
 		"Making a plan",
 		"Comparing qualia",
 		"Asking the great wizard",
 		"Goblin Mode",
-		"Downgrading plan.",
 		"npm install is-even",
 		"forking chromium",
-		"suckin dem toe-kens"
+		"suckin dem toe-kens",
 		"...wait",
-		"I found the answer",
+		"I found the dem",
+		"or should I say ds?",
 	]; 
-	*/
-
-	const text = [
-		"Yoooo dude",
-		"dude"
-	]
 
 	let textIdx = 0;
+	let inProcess = false;
 
 	const answerQuestionEvent = new CustomEvent('answerQuestion', {})
 
 	targetContainer.addEventListener('answerQuestion', function() {
-		console.log("here");
+		answer.classList.remove("hide-text");
+		answer.classList.add("answer-animation");
+		textIdx = 0;
+		inProcess = false;
 	})
 
-	target.addEventListener('animationend', function(e) {
+	target.addEventListener('animationend', function(ev) {
 		if (textIdx < text.length) {
-			if (e.animationName == "hide-text") {
+			if (ev.animationName == "hide-text") {
 				target.textContent = text[textIdx];
 				textIdx++;
 				target.classList.remove('hide-text');
 				target.classList.add('show-text');
-			} else if (e.animationName == "show-text") {
+			} else if (ev.animationName == "show-text") {
 				target.classList.remove('show-text');
 				target.classList.add('hide-text');
 			}
 		} else {
-			target.classList.remove('show-text')
-			target.classList.add('hide-text');
+			targetContainer.classList.remove('show-text');
 			targetContainer.classList.add('hide-text');
-			document.dispatchEvent(answerQuestionEvent);
+			target.classList.remove('show-text');
+			targetContainer.classList.add('hide-text');
+			targetContainer.dispatchEvent(answerQuestionEvent);
 		}
 	});
 	
-	input.addEventListener('keydown', function() {
-		 if (event.key == "Enter") {
-			 event.preventDefault();
-			 targetContainer.classList.toggle('show-text');
-			 target.classList.toggle('show-text');
+	const startQuery = (ev) => {
+		event.preventDefault();
+		if (!inProcess) {
+			inProcess = true;
+			answer.classList.remove("show-text");
+			answer.classList.remove("answer-animation");
+
+			targetContainer.classList.remove('hide-text');
+			targetContainer.classList.add('show-text');
+
+			target.classList.remove('hide-text');
+			target.textContent = "Thinking";
+			target.classList.add('hide-text');
+		}
+	}
+
+	button.addEventListener('click', startQuery);
+
+	input.addEventListener('keydown', function(ev) {
+		 if (ev.key == "Enter") {
+			 startQuery(ev)
 		 }
 	});
 </script>
