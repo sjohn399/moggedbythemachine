@@ -154,7 +154,7 @@ body {
 
 .show-text {
 	animation-name: show-text;
-	animation-duration: 1s;
+	animation-duration: 1.25s;
 	animation-fill-mode: forwards;
 }
 
@@ -169,7 +169,7 @@ body {
 
 .hide-text {
 	animation-name: hide-text;
-	animation-duration: 1s;
+	animation-duration: 1.25s;
 	animation-fill-mode: forwards;
 }
 
