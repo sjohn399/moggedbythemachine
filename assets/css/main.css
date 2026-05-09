@@ -24,6 +24,7 @@ body {
 		grid-template-columns: 1fr 3fr;
 	}
 	.posts {
+		margin-top: 10px;
 		padding-right: 20px;
 	}
 	.ballsack {
@@ -35,8 +36,8 @@ body {
 	 }
 }
 
-#query {
-	margin-bottom: 5px;
+h1 {
+	margin-top: 0px;
 }
 
 .title-and-nav-container {
