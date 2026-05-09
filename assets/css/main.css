@@ -9,21 +9,43 @@ body {
 .feed {
 	display: grid;
 	justify-content: center;
-	grid-template-columns: 1fr 3fr;
+	grid-template-columns: 1fr;
 	width: 100%;
 }
 
-.title-and-nav {
-	position: sticky;
-	top: 20px;
+@media (width >= 768px) {
+	.title-and-nav-container {
+		position: sticky;
+		top: 10px;
+		margin-left: 30px;
+		margin-right: 20px;
+	}
+	.feed {
+		grid-template-columns: 1fr 3fr;
+	}
+	.posts {
+		padding-right: 20px;
+	}
+	.ballsack {
+		margin-bottom: 0px;
+	}
+	.post-card {
+		margin-right: 10px;
+		margin-left: 10px;
+	 }
+}
+
+#query {
+	margin-bottom: 5px;
 }
 
 .title-and-nav-container {
-	position: sticky;
-	top: 10px;
+	position: static;
+	padding: 10px;
+	top: 0px;
 	min-width: 350px;
-	margin-left: 30px;
-	margin-right: 20px;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 .socials {
@@ -35,6 +57,7 @@ body {
 
 .ballsack {
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .llm-input {
@@ -70,7 +93,7 @@ body {
 }
 
 .posts {
-	padding-right: 20px;
+	padding-right: 0px;
 	display: flex;
 	flex-direction: column;
 }
@@ -79,8 +102,7 @@ body {
 	text-align: left;
 	padding: 10px;
 	overflow: clip;
-	margin-bottom: 15px;
-	margin-right: 5px;
+	margin-bottom: 10px;
 	max-height: 500px;
 	border: 2px solid black;	
 }
