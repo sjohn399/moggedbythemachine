@@ -22,7 +22,7 @@
 				<svg viewBox="0 0 100 100" xmlns="https://www.w3.org/2000/svg">
 					<circle class="roll roll-grey" fill="grey" r="10"/>
 					<circle class="roll roll-black" r="10"/>
-					<circle class="roll roll-red" fill="#D94427" r="10"/>
+					<circle id="last-circle" class="roll roll-red" fill="#D94427" r="10"/>
 					<text id="display-text" style="opacity: 0;" x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="4" fill="black">
 						<tspan class="thinking-man">🤔</tspan><tspan>...</tspan><tspan id="thinking-text">Thinking</tspan><tspan>...</tspan><tspan class="thinking-man">🤔</tspan>
 					</text>
@@ -45,6 +45,7 @@
 	const targetContainer = document.getElementById('display-text');
 	const answer = document.getElementById('answer');
 	const target = document.getElementById('thinking-text');
+	const lastCircle = document.getElementById('last-circle');
 
 	const text = [
 		"Making a plan",
@@ -60,9 +61,14 @@
 	]; 
 
 	let textIdx = 0;
-	let inProcess = false;
+	let inProcess = true;
 
 	const answerQuestionEvent = new CustomEvent('answerQuestion', {})
+
+
+	lastCircle.addEventListener('animationend', function() {
+		inProcess = false;
+	});
 
 	targetContainer.addEventListener('answerQuestion', function() {
 		answer.classList.remove("hide-text");
@@ -101,9 +107,8 @@
 			targetContainer.classList.remove('hide-text');
 			targetContainer.classList.add('show-text');
 
-			target.classList.remove('hide-text');
+			target.classList.add('show-text');
 			target.textContent = "Thinking";
-			target.classList.add('hide-text');
 		}
 	}
 
